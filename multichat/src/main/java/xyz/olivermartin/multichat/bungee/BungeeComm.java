@@ -219,7 +219,7 @@ public class BungeeComm implements Listener {
 					String serverName="UNKNOWN";
 					for (String server : ProxyServer.getInstance().getServers().keySet()) {
 						if(ProxyServer.getInstance().getServers().get(server).getSocketAddress().equals(ev.getSender().getSocketAddress())){
-							serverName=server.substring(0,3);
+							serverName=server.substring(0,2);
 						}
 					}
 					format=MultiChat.globalPrepend.replace("%SERVER%", serverName)+format;
