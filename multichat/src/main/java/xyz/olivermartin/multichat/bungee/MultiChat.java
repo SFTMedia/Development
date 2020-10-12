@@ -100,6 +100,8 @@ public class MultiChat extends Plugin implements Listener {
 	public static boolean hideVanishedStaffInMsg = true;
 	public static boolean hideVanishedStaffInStaffList = true;
 	public static boolean hideVanishedStaffInJoin = true;
+	
+	public static String globalPrepend="";
 
 	public static List<String> legacyServers = new ArrayList<String>();
 
@@ -361,6 +363,9 @@ public class MultiChat extends Plugin implements Listener {
 			// Set up global chat
 			GlobalChannel channel = Channel.getGlobalChannel();
 			channel.setFormat(configYML.getString("globalformat"));
+
+			// Set up prepender
+			globalPrepend=(configYML.getString("globalprepend"));
 
 			// Add all appropriate servers to this hardcoded global chat stream
 			for (String server : configYML.getStringList("no_global")) {

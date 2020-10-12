@@ -215,6 +215,16 @@ public class BungeeComm implements Listener {
 
 				DebugManager.log("{multichat:chat} Format (before removal of double chars) = " + format);
 
+				if (MultiChat.globalPrepend.contains("%SERVER%")){
+					String serverName="UNKNOWN";
+					for (String server : ProxyServer.getInstance().getServers().keySet()) {
+						if(ProxyServer.getInstance().getServers().get(server).getSocketAddress().equals(ev.getSender().getSocketAddress())){
+							serverName=server.substring(0,3);
+						}
+					}
+					format=MultiChat.globalPrepend.replace("%SERVER%", serverName)+format;
+				}
+
 				format = format.replace("%%","%");
 
 				DebugManager.log("{multichat:chat} Format = " + format);
