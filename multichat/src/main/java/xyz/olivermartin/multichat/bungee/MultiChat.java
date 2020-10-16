@@ -325,8 +325,6 @@ public class MultiChat extends Plugin implements Listener {
 			getProxy().registerChannel("multichat:chat");
 			getProxy().registerChannel("multichat:ch");
 			getProxy().registerChannel("multichat:ignore");
-			getProxy().registerChannel("multichat:pxe");
-			getProxy().registerChannel("multichat:ppxe");
 			getProxy().getPluginManager().registerListener(this, new BungeeComm());
 
 			// Register commands
@@ -432,7 +430,6 @@ public class MultiChat extends Plugin implements Listener {
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getGrouplist());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getMultichat());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getMultichatBypass());
-		getProxy().getPluginManager().registerCommand(this, CommandManager.getMultiChatExecute());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getDisplay());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getFreezechat());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getHelpme());
@@ -489,7 +486,6 @@ public class MultiChat extends Plugin implements Listener {
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getGrouplist());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getMultichat());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getMultichatBypass());
-		getProxy().getPluginManager().unregisterCommand(CommandManager.getMultiChatExecute());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getDisplay());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getFreezechat());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getHelpme());

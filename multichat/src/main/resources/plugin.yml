@@ -1,5 +1,5 @@
 name: MultiChat
-version: 1.9.5
+version: 1.9.5-custom-2
 author: Revilo410
 main: xyz.olivermartin.multichat.local.spigot.MultiChatLocalSpigotPlugin
 softdepend: [Vault,PlaceholderAPI]
@@ -24,14 +24,4 @@ commands:
       usage: /multichatlocal [reload/debug/migratetosql]
       permission: multichatlocal.reload
       permission-message: You do not have permission (multichatlocal.reload)
-   pxe:
-      description: Proxy Execute - Execute commands on Proxy server
-      usage: /pxe [-p <player>] <command to execute>
-      permission: multichatlocal.pexecute
-      permission-message: You do not have permission (multichatlocal.pexecute)
-   pexecute:
-      description: Proxy Execute - Execute commands on Proxy server
-      usage: /pexecute [-p <player>] <command to execute>
-      permission: multichatlocal.pexecute
-      permission-message: You do not have permission (multichatlocal.pexecute)
       

@@ -181,7 +181,7 @@ public class BungeeComm implements Listener {
 	@EventHandler
 	public static void onPluginMessage(PluginMessageEvent ev) {
 
-		if (! (ev.getTag().equals("multichat:comm") || ev.getTag().equals("multichat:chat") || ev.getTag().equals("multichat:prefix") || ev.getTag().equals("multichat:suffix") || ev.getTag().equals("multichat:dn") || ev.getTag().equals("multichat:world") || ev.getTag().equals("multichat:nick") || ev.getTag().equals("multichat:pxe") || ev.getTag().equals("multichat:ppxe")) ) {
+		if (! (ev.getTag().equals("multichat:comm") || ev.getTag().equals("multichat:chat") || ev.getTag().equals("multichat:prefix") || ev.getTag().equals("multichat:suffix") || ev.getTag().equals("multichat:dn") || ev.getTag().equals("multichat:world") || ev.getTag().equals("multichat:nick")) ) {
 			return;
 		}
 
@@ -461,63 +461,5 @@ public class BungeeComm implements Listener {
 			}
 
 		}
-
-
-		if (ev.getTag().equals("multichat:pxe")) {
-
-			ev.setCancelled(true);
-
-			DebugManager.log("[multichat:pxe] Got an incoming pexecute message!");
-
-			ByteArrayInputStream stream = new ByteArrayInputStream(ev.getData());
-			DataInputStream in = new DataInputStream(stream);
-
-			try {
-
-				String command = in.readUTF();
-				DebugManager.log("[multichat:pxe] Command is: " + command);
-				ProxyServer.getInstance().getPluginManager().dispatchCommand(ProxyServer.getInstance().getConsole(), command);
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-
-		}
-
-		if (ev.getTag().equals("multichat:ppxe")) {
-
-			ev.setCancelled(true);
-
-			DebugManager.log("[multichat:ppxe] Got an incoming pexecute message (for a player)!");
-
-			ByteArrayInputStream stream = new ByteArrayInputStream(ev.getData());
-			DataInputStream in = new DataInputStream(stream);
-
-			try {
-
-				String command = in.readUTF();
-				String playerRegex = in.readUTF();
-
-				DebugManager.log("[multichat:ppxe] Command is: " + command);
-				DebugManager.log("[multichat:ppxe] Player regex is: " + playerRegex);
-
-				for (ProxiedPlayer p : ProxyServer.getInstance().getPlayers()) {
-
-					if (p.getName().matches(playerRegex)) {
-
-						ProxyServer.getInstance().getPluginManager().dispatchCommand(p, command);
-
-					}
-
-				}
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			} catch (PatternSyntaxException e2) {
-				MessageManager.sendMessage(ProxyServer.getInstance().getConsole(), "command_execute_regex");
-			}
-
-		}
-
 	}
 }

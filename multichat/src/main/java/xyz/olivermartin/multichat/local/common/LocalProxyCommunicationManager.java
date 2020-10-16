@@ -47,10 +47,6 @@ public abstract class LocalProxyCommunicationManager {
 	protected abstract void sendSuffixUpdate(UUID uuid, String suffix);
 
 	protected abstract void sendDisplayNameUpdate(UUID uuid, String displayName);
-
-	public abstract void sendProxyExecuteMessage(String command);
-
-	public abstract void sendProxyExecutePlayerMessage(String command, String player);
 	
 	public abstract void sendChatMessage(UUID uuid, String message, String format);
 

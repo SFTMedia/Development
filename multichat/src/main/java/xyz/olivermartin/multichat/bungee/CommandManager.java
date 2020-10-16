@@ -26,7 +26,6 @@ import xyz.olivermartin.multichat.bungee.commands.GMANCCommand;
 import xyz.olivermartin.multichat.bungee.commands.MsgCommand;
 import xyz.olivermartin.multichat.bungee.commands.MultiChatBypassCommand;
 import xyz.olivermartin.multichat.bungee.commands.MultiChatCommand;
-import xyz.olivermartin.multichat.bungee.commands.MultiChatExecuteCommand;
 import xyz.olivermartin.multichat.bungee.commands.MuteCommand;
 import xyz.olivermartin.multichat.bungee.commands.ReplyCommand;
 import xyz.olivermartin.multichat.bungee.commands.SocialSpyCommand;
@@ -62,7 +61,6 @@ public class CommandManager {
 		msg = new MsgCommand();
 		multichat = new MultiChatCommand();
 		multichatbypass = new MultiChatBypassCommand();
-		multichatexecute = new MultiChatExecuteCommand();
 		mute = new MuteCommand();
 		reply = new ReplyCommand();
 		socialspy = new SocialSpyCommand();
@@ -96,19 +94,6 @@ public class CommandManager {
 	private static Command msg;
 	private static Command multichat;
 	private static Command multichatbypass;
-	private static Command multichatexecute;
-	/**
-	 * @return the multichatexecute
-	 */
-	public static Command getMultiChatExecute() {
-		return multichatexecute;
-	}
-	/**
-	 * @param multichatexecute the multichatexecute to set
-	 */
-	public static void setMultiChatExecute(Command multichatexecute) {
-		CommandManager.multichatexecute = multichatexecute;
-	}
 
 	private static Command mute;
 	private static Command reply;
@@ -471,7 +456,6 @@ public class CommandManager {
 		msg = new MsgCommand();
 		multichat = new MultiChatCommand();
 		multichatbypass = new MultiChatBypassCommand();
-		multichatexecute = new MultiChatExecuteCommand();
 		mute = new MuteCommand();
 		reply = new ReplyCommand();
 		socialspy = new SocialSpyCommand();

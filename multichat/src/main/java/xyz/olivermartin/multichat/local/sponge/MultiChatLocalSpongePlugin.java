@@ -37,11 +37,10 @@ import xyz.olivermartin.multichat.local.common.storage.LocalFileSystemManager;
 import xyz.olivermartin.multichat.local.common.storage.LocalNameManager;
 import xyz.olivermartin.multichat.local.common.storage.LocalNameManagerMode;
 import xyz.olivermartin.multichat.local.common.storage.LocalSQLNameManager;
-import xyz.olivermartin.multichat.local.sponge.commands.MultiChatLocalSpongeCommand;
 import xyz.olivermartin.multichat.local.sponge.commands.SpongeNickCommand;
-import xyz.olivermartin.multichat.local.sponge.commands.SpongeProxyExecuteCommand;
 import xyz.olivermartin.multichat.local.sponge.commands.SpongeRealnameCommand;
 import xyz.olivermartin.multichat.local.sponge.commands.SpongeUsernameCommand;
+import xyz.olivermartin.multichat.local.sponge.commands.MultiChatLocalSpongeCommand;
 import xyz.olivermartin.multichat.local.sponge.hooks.LocalSpongePAPIHook;
 import xyz.olivermartin.multichat.local.sponge.listeners.LocalSpongeLoginLogoutListener;
 import xyz.olivermartin.multichat.local.sponge.listeners.LocalSpongeWorldChangeListener;
@@ -202,19 +201,10 @@ public class MultiChatLocalSpongePlugin {
 				.executor(new SpongeUsernameCommand())
 				.build();
 
-		CommandSpec pexecuteCommandSpec = CommandSpec.builder()
-				.description(Text.of("Sponge Proxy Execute Command"))
-				.arguments(
-						GenericArguments.remainingJoinedStrings(Text.of("message")))
-				.permission("multichatlocal.pexecute")
-				.executor(new SpongeProxyExecuteCommand())
-				.build();
-
 		Sponge.getCommandManager().register(this, nicknameCommandSpec, "nick");
 		Sponge.getCommandManager().register(this, multichatlocalCommandSpec, "multichatlocal");
 		Sponge.getCommandManager().register(this, realnameCommandSpec, "realname");
 		Sponge.getCommandManager().register(this, usernameCommandSpec, "username");
-		Sponge.getCommandManager().register(this, pexecuteCommandSpec, "pexecute", "pxe");
 
 		// Manage Dependencies
 		try {
@@ -255,11 +245,6 @@ public class MultiChatLocalSpongePlugin {
 		ChannelBinding.RawDataChannel ignoreChannel = channelRegistrar.createRawChannel(this, "multichat:ignore");
 		commManager.registerChannel("multichat:ignore", ignoreChannel);
 
-		ChannelBinding.RawDataChannel pexecuteChannel = channelRegistrar.createRawChannel(this, "multichat:pxe");
-		commManager.registerChannel("multichat:pxe", pexecuteChannel);
-		ChannelBinding.RawDataChannel ppexecuteChannel = channelRegistrar.createRawChannel(this, "multichat:ppxe");
-		commManager.registerChannel("multichat:ppxe", ppexecuteChannel);
-
 		commChannel.addListener(Platform.Type.SERVER, new LocalSpongePlayerMetaListener());
 		chatChannel.addListener(Platform.Type.SERVER, new LocalSpongeCastListener());
 		channelChannel.addListener(Platform.Type.SERVER, new LocalSpongePlayerChannelListener());
@@ -297,10 +282,6 @@ public class MultiChatLocalSpongePlugin {
 		commManager.unregisterChannel("multichat:ch");
 		Sponge.getChannelRegistrar().unbindChannel(commManager.getChannel("multichat:ignore"));
 		commManager.unregisterChannel("multichat:ignore");
-		Sponge.getChannelRegistrar().unbindChannel(commManager.getChannel("multichat:pxe"));
-		commManager.unregisterChannel("multichat:pxe");
-		Sponge.getChannelRegistrar().unbindChannel(commManager.getChannel("multichat:ppxe"));
-		commManager.unregisterChannel("multichat:ppxe");
 
 		if (MultiChatLocal.getInstance().getNameManager().getMode() == LocalNameManagerMode.SQL) {
 

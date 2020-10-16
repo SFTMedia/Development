@@ -23,11 +23,10 @@ import xyz.olivermartin.multichat.local.common.storage.LocalFileSystemManager;
 import xyz.olivermartin.multichat.local.common.storage.LocalNameManager;
 import xyz.olivermartin.multichat.local.common.storage.LocalNameManagerMode;
 import xyz.olivermartin.multichat.local.common.storage.LocalSQLNameManager;
-import xyz.olivermartin.multichat.local.spigot.commands.MultiChatLocalSpigotCommand;
 import xyz.olivermartin.multichat.local.spigot.commands.SpigotNickCommand;
-import xyz.olivermartin.multichat.local.spigot.commands.SpigotProxyExecuteCommand;
 import xyz.olivermartin.multichat.local.spigot.commands.SpigotRealnameCommand;
 import xyz.olivermartin.multichat.local.spigot.commands.SpigotUsernameCommand;
+import xyz.olivermartin.multichat.local.spigot.commands.MultiChatLocalSpigotCommand;
 import xyz.olivermartin.multichat.local.spigot.hooks.LocalSpigotPAPIHook;
 import xyz.olivermartin.multichat.local.spigot.hooks.LocalSpigotVaultHook;
 import xyz.olivermartin.multichat.local.spigot.listeners.LocalSpigotLoginLogoutListener;
@@ -152,9 +151,6 @@ public class MultiChatLocalSpigotPlugin extends JavaPlugin {
 
 		// Register Commands
 		this.getCommand("multichatlocal").setExecutor(new MultiChatLocalSpigotCommand());
-		SpigotProxyExecuteCommand pxeCommand = new SpigotProxyExecuteCommand();
-		this.getCommand("pxe").setExecutor(pxeCommand);
-		this.getCommand("pexecute").setExecutor(pxeCommand);
 		this.getCommand("nick").setExecutor(new SpigotNickCommand());
 		this.getCommand("realname").setExecutor(new SpigotRealnameCommand());
 		this.getCommand("username").setExecutor(new SpigotUsernameCommand());
@@ -174,8 +170,6 @@ public class MultiChatLocalSpigotPlugin extends JavaPlugin {
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "multichat:dn");
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "multichat:world");
 		getServer().getMessenger().registerOutgoingPluginChannel(this, "multichat:nick");
-		getServer().getMessenger().registerOutgoingPluginChannel(this, "multichat:pxe");
-		getServer().getMessenger().registerOutgoingPluginChannel(this, "multichat:ppxe");
 
 		getServer().getMessenger().registerIncomingPluginChannel(this, "multichat:comm", new LocalSpigotPlayerMetaListener());
 		getServer().getMessenger().registerIncomingPluginChannel(this, "multichat:chat", new LocalSpigotCastListener());
