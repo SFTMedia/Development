@@ -32,7 +32,7 @@ public class GJMCommand extends Command {
 			if ((sender instanceof ProxiedPlayer)) {
 
 				ProxiedPlayer player = (ProxiedPlayer) sender;
-				toggleresult = Events.toggleMC(player.getUniqueId());
+				toggleresult = Events.toggleJM(player.getUniqueId());
 
 				if (toggleresult == true) {
 					MessageManager.sendMessage(sender, "command_gjm_toggle_on");

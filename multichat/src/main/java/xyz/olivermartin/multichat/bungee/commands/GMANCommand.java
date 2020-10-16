@@ -32,7 +32,7 @@ public class GMANCommand extends Command {
 			if ((sender instanceof ProxiedPlayer)) {
 
 				ProxiedPlayer player = (ProxiedPlayer) sender;
-				toggleresult = Events.toggleMC(player.getUniqueId());
+				toggleresult = Events.toggleMan(player.getUniqueId());
 
 				if (toggleresult == true) {
 					MessageManager.sendMessage(sender, "command_gman_toggle_on");

@@ -50,7 +50,7 @@ public class ConsoleManager {
 			return;
 		}
 
-		logToConsole(MessageManager.getMessage("console_managerchat_prefix") + message);
+		logToConsole(MessageManager.getMessage("console_manchat_prefix") + message);
 
 	}
 

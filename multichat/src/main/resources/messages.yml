@@ -20,7 +20,9 @@ version: "1.9.5" #
 # Console log formats
 console_main_prefix: "&8[&2M&aC&8]&f "
 console_chat_prefix: "&fCHAT &f> "
+console_jmodchat_prefix: "&3STAFFCHAT &f> &3"
 console_modchat_prefix: "&3STAFFCHAT &f> &3"
+console_manchat_prefix: "&3STAFFCHAT &f> &3"
 console_adminchat_prefix: "&5STAFFCHAT &f> &5"
 console_groupchat_prefix": "&2GROUPCHAT &f> &2"
 console_display_prefix: "&fDISPLAY &f> "

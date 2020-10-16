@@ -32,7 +32,7 @@ public class GMOCommand extends Command {
 			if ((sender instanceof ProxiedPlayer)) {
 
 				ProxiedPlayer player = (ProxiedPlayer) sender;
-				toggleresult = Events.toggleMC(player.getUniqueId());
+				toggleresult = Events.toggleMo(player.getUniqueId());
 
 				if (toggleresult == true) {
 					MessageManager.sendMessage(sender, "command_gmo_toggle_on");
