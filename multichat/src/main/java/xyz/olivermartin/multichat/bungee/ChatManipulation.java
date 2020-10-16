@@ -111,6 +111,18 @@ public class ChatManipulation {
 
 	}
 
+	public String replaceJModChatVars(String messageFormat, String playername, String displayname, String server, String message, ProxiedPlayer target) {
+
+		messageFormat = messageFormat.replace("%DISPLAYNAME%", displayname);
+		messageFormat = messageFormat.replace("%NAME%", playername);
+		messageFormat = messageFormat.replace("%SERVER%", server);
+		messageFormat = messageFormat.replace("%MESSAGE%", message);
+		messageFormat = messageFormat.replace("%CC%", "&" + ((TChatInfo)MultiChat.jmodchatpreferences.get(target.getUniqueId())).getChatColor());
+		messageFormat = messageFormat.replace("%NC%", "&" + ((TChatInfo)MultiChat.jmodchatpreferences.get(target.getUniqueId())).getNameColor());
+		return messageFormat;
+
+	}
+
 	public String replaceModChatVars(String messageFormat, String playername, String displayname, String server, String message, ProxiedPlayer target) {
 
 		messageFormat = messageFormat.replace("%DISPLAYNAME%", displayname);
@@ -119,6 +131,18 @@ public class ChatManipulation {
 		messageFormat = messageFormat.replace("%MESSAGE%", message);
 		messageFormat = messageFormat.replace("%CC%", "&" + ((TChatInfo)MultiChat.modchatpreferences.get(target.getUniqueId())).getChatColor());
 		messageFormat = messageFormat.replace("%NC%", "&" + ((TChatInfo)MultiChat.modchatpreferences.get(target.getUniqueId())).getNameColor());
+		return messageFormat;
+
+	}
+
+	public String replaceManagerChatVars(String messageFormat, String playername, String displayname, String server, String message, ProxiedPlayer target) {
+
+		messageFormat = messageFormat.replace("%DISPLAYNAME%", displayname);
+		messageFormat = messageFormat.replace("%NAME%", playername);
+		messageFormat = messageFormat.replace("%SERVER%", server);
+		messageFormat = messageFormat.replace("%MESSAGE%", message);
+		messageFormat = messageFormat.replace("%CC%", "&" + ((TChatInfo)MultiChat.managerchatpreferences.get(target.getUniqueId())).getChatColor());
+		messageFormat = messageFormat.replace("%NC%", "&" + ((TChatInfo)MultiChat.managerchatpreferences.get(target.getUniqueId())).getNameColor());
 		return messageFormat;
 
 	}

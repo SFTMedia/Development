@@ -182,6 +182,15 @@ public class MessageManager {
 		defaultMessages.put("command_mcc_invalid", "&cInvalid color codes specified: Must be letters a-f or numbers 0-9");
 		defaultMessages.put("command_mcc_invalid_usage", "&cUsage: /mcc <chatcolorcode> <namecolorcode>");
 
+		defaultMessages.put("command_gjm_toggle_on", "&bGlobal JMod chat toggled on!");
+		defaultMessages.put("command_gjm_toggle_off", "&bGlobal JMod chat toggled off!");
+
+		defaultMessages.put("command_gmo_toggle_on", "&bGlobal Mod chat toggled on!");
+		defaultMessages.put("command_gmo_toggle_off", "&cGlobal Mod chat toggled off!");
+
+		defaultMessages.put("command_gman_toggle_on", "&bGlobal Manager chat toggled on!");
+		defaultMessages.put("command_gman_toggle_off", "&cGlobal Manager chat toggled off!");
+
 		defaultMessages.put("command_mc_toggle_on", "&bMod chat toggled on!");
 		defaultMessages.put("command_mc_toggle_off", "&cMod chat toggled off!");
 		defaultMessages.put("command_mc_only_players", "&cOnly players can toggle the chat!");

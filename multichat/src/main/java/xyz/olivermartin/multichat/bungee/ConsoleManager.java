@@ -24,6 +24,16 @@ public class ConsoleManager {
 
 	}
 
+	public static void logJModChat(String message) {
+
+		if (!MultiChat.logStaffChat) {
+			return;
+		}
+
+		logToConsole(MessageManager.getMessage("console_jmodchat_prefix") + message);
+
+	}
+
 	public static void logModChat(String message) {
 
 		if (!MultiChat.logStaffChat) {
@@ -31,6 +41,16 @@ public class ConsoleManager {
 		}
 
 		logToConsole(MessageManager.getMessage("console_modchat_prefix") + message);
+
+	}
+
+	public static void logManagerChat(String message) {
+
+		if (!MultiChat.logStaffChat) {
+			return;
+		}
+
+		logToConsole(MessageManager.getMessage("console_managerchat_prefix") + message);
 
 	}
 

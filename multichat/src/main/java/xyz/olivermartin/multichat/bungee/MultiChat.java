@@ -73,7 +73,9 @@ public class MultiChat extends Plugin implements Listener {
 
 	};
 
+	public static Map<UUID, TChatInfo> jmodchatpreferences = new HashMap<UUID, TChatInfo>();
 	public static Map<UUID, TChatInfo> modchatpreferences = new HashMap<UUID, TChatInfo>();
+	public static Map<UUID, TChatInfo> managerchatpreferences = new HashMap<UUID, TChatInfo>();
 	public static Map<UUID, TChatInfo> adminchatpreferences = new HashMap<UUID, TChatInfo>();
 	public static Map<String, TGroupChatInfo> groupchats = new HashMap<String, TGroupChatInfo>();
 
@@ -419,8 +421,12 @@ public class MultiChat extends Plugin implements Listener {
 		// Register main commands
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getAcc());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getAc());
-		getProxy().getPluginManager().registerCommand(this, CommandManager.getMcc());
-		getProxy().getPluginManager().registerCommand(this, CommandManager.getMc());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGjm());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGjmc());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGmo());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGmoc());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGman());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGmanc());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getGc());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getGroup());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getGrouplist());
@@ -472,8 +478,12 @@ public class MultiChat extends Plugin implements Listener {
 		// Unregister main commands
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getAcc());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getAc());
-		getProxy().getPluginManager().unregisterCommand(CommandManager.getMcc());
-		getProxy().getPluginManager().unregisterCommand(CommandManager.getMc());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGjm());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGjmc());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGmo());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGmoc());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGman());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGmanc());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getGc());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getGroup());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getGrouplist());
@@ -555,10 +565,32 @@ public class MultiChat extends Plugin implements Listener {
 	public static void saveChatInfo() {
 
 		try {
-			File file = new File(configDir, "StaffChatInfo.dat");
+			File file = new File(configDir, "JModChatInfo.dat");
+			FileOutputStream saveFile = new FileOutputStream(file);
+			ObjectOutputStream out = new ObjectOutputStream(saveFile);
+			out.writeObject(jmodchatpreferences);
+			out.close();
+		} catch (IOException e) {
+			System.out.println("[MultiChat] [Save Error] An error has occured writing the mod chat info file!");
+			e.printStackTrace();
+		}
+
+		try {
+			File file = new File(configDir, "ModChatInfo.dat");
 			FileOutputStream saveFile = new FileOutputStream(file);
 			ObjectOutputStream out = new ObjectOutputStream(saveFile);
 			out.writeObject(modchatpreferences);
+			out.close();
+		} catch (IOException e) {
+			System.out.println("[MultiChat] [Save Error] An error has occured writing the mod chat info file!");
+			e.printStackTrace();
+		}
+
+		try {
+			File file = new File(configDir, "ManagerChatInfo.dat");
+			FileOutputStream saveFile = new FileOutputStream(file);
+			ObjectOutputStream out = new ObjectOutputStream(saveFile);
+			out.writeObject(managerchatpreferences);
 			out.close();
 		} catch (IOException e) {
 			System.out.println("[MultiChat] [Save Error] An error has occured writing the mod chat info file!");
@@ -688,12 +720,52 @@ public class MultiChat extends Plugin implements Listener {
 	}
 
 	@SuppressWarnings("unchecked")
+	public static HashMap<UUID, TChatInfo> loadJModChatInfo() {
+
+		HashMap<UUID, TChatInfo> result = null;
+
+		try {
+			File file = new File(configDir, "JModChatInfo.dat");
+			FileInputStream saveFile = new FileInputStream(file);
+			ObjectInputStream in = new ObjectInputStream(saveFile);
+			result = (HashMap<UUID, TChatInfo>)in.readObject();
+			in.close();
+		} catch (IOException|ClassNotFoundException e) {
+			System.out.println("[MultiChat] [Load Error] An error has occured reading the mod chat info file!");
+			e.printStackTrace();
+		}
+
+		return result;
+
+	}
+
+	@SuppressWarnings("unchecked")
 	public static HashMap<UUID, TChatInfo> loadModChatInfo() {
 
 		HashMap<UUID, TChatInfo> result = null;
 
 		try {
-			File file = new File(configDir, "StaffChatInfo.dat");
+			File file = new File(configDir, "ModChatInfo.dat");
+			FileInputStream saveFile = new FileInputStream(file);
+			ObjectInputStream in = new ObjectInputStream(saveFile);
+			result = (HashMap<UUID, TChatInfo>)in.readObject();
+			in.close();
+		} catch (IOException|ClassNotFoundException e) {
+			System.out.println("[MultiChat] [Load Error] An error has occured reading the mod chat info file!");
+			e.printStackTrace();
+		}
+
+		return result;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public static HashMap<UUID, TChatInfo> loadManagerChatInfo() {
+
+		HashMap<UUID, TChatInfo> result = null;
+
+		try {
+			File file = new File(configDir, "ManagerChatInfo.dat");
 			FileInputStream saveFile = new FileInputStream(file);
 			ObjectInputStream in = new ObjectInputStream(saveFile);
 			result = (HashMap<UUID, TChatInfo>)in.readObject();
@@ -921,12 +993,16 @@ public class MultiChat extends Plugin implements Listener {
 
 		System.out.println("[MultiChat] Starting load routine for data files");
 
-		File f = new File(configDir, "StaffChatInfo.dat");
+		File f = new File(configDir, "ModChatInfo.dat");
 		File f2 = new File(configDir, "AdminChatInfo.dat");
+		File fJMod = new File(configDir, "JModChatInfo.dat");
+		File fManager = new File(configDir, "ManagerChatInfo.dat");
 
-		if ((f.exists()) && (!f.isDirectory()) && (f2.exists()) && (!f2.isDirectory())) {
+		if ((f.exists()) && (!f.isDirectory()) && (f2.exists()) && (!f2.isDirectory())&& (fJMod.exists()) && (!fJMod.isDirectory())&& (fManager.exists()) && (!fManager.isDirectory())) {
 
+			jmodchatpreferences.putAll(loadJModChatInfo());
 			modchatpreferences.putAll(loadModChatInfo());
+			managerchatpreferences.putAll(loadManagerChatInfo());
 			adminchatpreferences.putAll(loadAdminChatInfo());
 
 		} else {

@@ -17,8 +17,12 @@ import xyz.olivermartin.multichat.bungee.commands.GroupListCommand;
 import xyz.olivermartin.multichat.bungee.commands.HelpMeCommand;
 import xyz.olivermartin.multichat.bungee.commands.IgnoreCommand;
 import xyz.olivermartin.multichat.bungee.commands.LocalCommand;
-import xyz.olivermartin.multichat.bungee.commands.MCCCommand;
-import xyz.olivermartin.multichat.bungee.commands.MCCommand;
+import xyz.olivermartin.multichat.bungee.commands.GJMCommand;
+import xyz.olivermartin.multichat.bungee.commands.GJMCCommand;
+import xyz.olivermartin.multichat.bungee.commands.GMOCommand;
+import xyz.olivermartin.multichat.bungee.commands.GMOCCommand;
+import xyz.olivermartin.multichat.bungee.commands.GMANCommand;
+import xyz.olivermartin.multichat.bungee.commands.GMANCCommand;
 import xyz.olivermartin.multichat.bungee.commands.MsgCommand;
 import xyz.olivermartin.multichat.bungee.commands.MultiChatBypassCommand;
 import xyz.olivermartin.multichat.bungee.commands.MultiChatCommand;
@@ -49,8 +53,12 @@ public class CommandManager {
 		helpme = new HelpMeCommand();
 		ignore = new IgnoreCommand();
 		local = new LocalCommand();
-		mcc = new MCCCommand();
-		mc = new MCCommand();
+		gjm = new GJMCommand();
+		gjmc = new GJMCommand();
+		gmo = new GMOCommand();
+		gmoc = new GMOCCommand();
+		gman = new GMANCommand();
+		gmanc = new GMANCCommand();
 		msg = new MsgCommand();
 		multichat = new MultiChatCommand();
 		multichatbypass = new MultiChatBypassCommand();
@@ -79,8 +87,12 @@ public class CommandManager {
 	private static Command helpme;
 	private static Command ignore;
 	private static Command local;
-	private static Command mcc;
-	private static Command mc;
+	private static Command gjm;
+	private static Command gjmc;
+	private static Command gmo;
+	private static Command gmoc;
+	private static Command gman;
+	private static Command gmanc;
 	private static Command msg;
 	private static Command multichat;
 	private static Command multichatbypass;
@@ -299,30 +311,6 @@ public class CommandManager {
 		CommandManager.local = local;
 	}
 	/**
-	 * @return the mcc
-	 */
-	public static Command getMcc() {
-		return mcc;
-	}
-	/**
-	 * @param mcc the mcc to set
-	 */
-	public static void setMcc(Command mcc) {
-		CommandManager.mcc = mcc;
-	}
-	/**
-	 * @return the mc
-	 */
-	public static Command getMc() {
-		return mc;
-	}
-	/**
-	 * @param mc the mc to set
-	 */
-	public static void setMc(Command mc) {
-		CommandManager.mc = mc;
-	}
-	/**
 	 * @return the msg
 	 */
 	public static Command getMsg() {
@@ -418,7 +406,42 @@ public class CommandManager {
 	public static void setUsecast(Command usecast) {
 		CommandManager.usecast = usecast;
 	}
-
+	public static Command getGjm() {
+		return gjm;
+	}
+	public static Command getGjmc() {
+		return gjmc;
+	}
+	public static Command getGman() {
+		return gman;
+	}
+	public static Command getGmanc() {
+		return gmanc;
+	}
+	public static Command getGmo() {
+		return gmo;
+	}
+	public static Command getGmoc() {
+		return gmoc;
+	}
+	public static void setGjm(Command gjm) {
+		CommandManager.gjm = gjm;
+	}
+	public static void setGjmc(Command gjmc) {
+		CommandManager.gjmc = gjmc;
+	}
+	public static void setGman(Command gman) {
+		CommandManager.gman = gman;
+	}
+	public static void setGmanc(Command gmanc) {
+		CommandManager.gmanc = gmanc;
+	}
+	public static void setGmo(Command gmo) {
+		CommandManager.gmo = gmo;
+	}
+	public static void setGmoc(Command gmoc) {
+		CommandManager.gmoc = gmoc;
+	}
 	/**
 	 * Generates new instances of all commands
 	 */
@@ -439,8 +462,12 @@ public class CommandManager {
 		helpme = new HelpMeCommand();
 		ignore = new IgnoreCommand();
 		local = new LocalCommand();
-		mcc = new MCCCommand();
-		mc = new MCCommand();
+		gjm = new GJMCommand();
+		gjmc = new GJMCommand();
+		gmo = new GMOCommand();
+		gmoc = new GMOCCommand();
+		gman = new GMANCommand();
+		gmanc = new GMANCCommand();
 		msg = new MsgCommand();
 		multichat = new MultiChatCommand();
 		multichatbypass = new MultiChatBypassCommand();

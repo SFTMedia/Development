@@ -15,12 +15,12 @@ import xyz.olivermartin.multichat.bungee.StaffChatManager;
  * @author Oliver Martin (Revilo410)
  *
  */
-public class MCCommand extends Command {
+public class GMOCommand extends Command {
 
 	private static String[] aliases = new String[] {};
 
-	public MCCommand() {
-		super("mc", "multichat.staff.mod", aliases);
+	public GMOCommand() {
+		super("gmo", "multichat.staff.mod", aliases);
 	}
 
 	public void execute(CommandSender sender, String[] args) {
@@ -35,9 +35,9 @@ public class MCCommand extends Command {
 				toggleresult = Events.toggleMC(player.getUniqueId());
 
 				if (toggleresult == true) {
-					MessageManager.sendMessage(sender, "command_mc_toggle_on");
+					MessageManager.sendMessage(sender, "command_gmo_toggle_on");
 				} else {
-					MessageManager.sendMessage(sender, "command_mc_toggle_off");
+					MessageManager.sendMessage(sender, "command_gmo_toggle_off");
 				}
 
 			} else {

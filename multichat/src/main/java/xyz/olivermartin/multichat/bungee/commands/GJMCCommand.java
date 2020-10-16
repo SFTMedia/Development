@@ -15,12 +15,12 @@ import xyz.olivermartin.multichat.bungee.MultiChat;
  * @author Oliver Martin (Revilo410)
  *
  */
-public class MCCCommand extends Command {
+public class GJMCCommand extends Command {
 
 	private static String[] aliases = new String[] {};
 
-	public MCCCommand() {
-		super("mcc", "multichat.staff.mod", aliases);
+	public GJMCCommand() {
+		super("gjmc", "multichat.staff.jmod", aliases);
 	}
 
 	public void execute(CommandSender sender, String[] args) {
@@ -51,14 +51,14 @@ public class MCCCommand extends Command {
 						|| (args[1].equals("2")) || (args[1].equals("3")) || (args[1].equals("4")) || (args[1].equals("5"))
 						|| (args[1].equals("6")) || (args[1].equals("7")) || (args[1].equals("8")) || (args[1].equals("9"))) {
 
-					MultiChat.modchatpreferences.remove(player.getUniqueId());
+					MultiChat.jmodchatpreferences.remove(player.getUniqueId());
 
 					chatinfo.setChatColor(args[0].charAt(0));
 					chatinfo.setNameColor(args[1].charAt(0));
 
-					MultiChat.modchatpreferences.put(player.getUniqueId(), chatinfo);
+					MultiChat.jmodchatpreferences.put(player.getUniqueId(), chatinfo);
 
-					MessageManager.sendMessage(sender, "command_mcc_updated");
+					MessageManager.sendMessage(sender, "command_gjm_updated");
 
 				} else {
 					MessageManager.sendMessage(sender, "command_mcc_invalid");
