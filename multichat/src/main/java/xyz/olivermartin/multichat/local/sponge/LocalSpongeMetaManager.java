@@ -93,7 +93,7 @@ public class LocalSpongeMetaManager extends LocalMetaManager {
 			displayNameFormat = displayNameFormat.replaceAll("%PREFIX%", getPrefix(uuid));
 			displayNameFormat = displayNameFormat.replaceAll("%SUFFIX%", getSuffix(uuid));
 			displayNameFormat = MultiChatUtil.reformatRGB(displayNameFormat);
-			displayNameFormat = displayNameFormat.replaceAll("(?i)&(?=[a-f,0-9,k-o,r,x])", "ง");
+			displayNameFormat = displayNameFormat.replaceAll("(?i)&(?=[a-f,0-9,k-o,r,x])", "ยง");
 
 			displayNameFormat = MultiChatUtil.approximateHexCodes(displayNameFormat);
 
