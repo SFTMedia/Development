@@ -28,10 +28,10 @@ public class MessageManager {
 
 		defaultMessages.put("console_main_prefix", "&8[&2M&aC&8]&f ");
 		defaultMessages.put("console_chat_prefix", "&fCHAT &f> ");
-		defaultMessages.put("console_jmodchat_prefix", "&3STAFFCHAT &f> &3");
-		defaultMessages.put("console_modchat_prefix", "&3STAFFCHAT &f> &3");
-		defaultMessages.put("console_manchat_prefix", "&3STAFFCHAT &f> &3");
-		defaultMessages.put("console_adminchat_prefix", "&5STAFFCHAT &f> &5");
+		defaultMessages.put("console_jmodchat_prefix", "&2Global JMod Chat &f> &3");
+		defaultMessages.put("console_modchat_prefix", "&9Global Mod Chat &f> &3");
+		defaultMessages.put("console_manchat_prefix", "&4Global Manager Chat &f> &3");
+		defaultMessages.put("console_adminchat_prefix", "&cGlobal Admin Chat &f> &5");
 		defaultMessages.put("console_groupchat_prefix", "&2GROUPCHAT &f> &2");
 		defaultMessages.put("console_display_prefix", "&fDISPLAY &f> ");
 		defaultMessages.put("console_socialspy_prefix", "&cSOCIALSPY &f> &c");
