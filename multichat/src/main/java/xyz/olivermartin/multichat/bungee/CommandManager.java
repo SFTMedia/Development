@@ -1,8 +1,8 @@
 package xyz.olivermartin.multichat.bungee;
 
 import net.md_5.bungee.api.plugin.Command;
-import xyz.olivermartin.multichat.bungee.commands.ACCCommand;
-import xyz.olivermartin.multichat.bungee.commands.ACCommand;
+import xyz.olivermartin.multichat.bungee.commands.GADCCommand;
+import xyz.olivermartin.multichat.bungee.commands.GADCommand;
 import xyz.olivermartin.multichat.bungee.commands.AnnouncementCommand;
 import xyz.olivermartin.multichat.bungee.commands.BulletinCommand;
 import xyz.olivermartin.multichat.bungee.commands.CastCommand;
@@ -36,8 +36,8 @@ public class CommandManager {
 
 	static {
 
-		acc = new ACCCommand();
-		ac = new ACCommand();
+		gadc = new GADCCommand();
+		gad = new GADCommand();
 		announcement = new AnnouncementCommand();
 		bulletin = new BulletinCommand();
 		cast = new CastCommand();
@@ -69,8 +69,8 @@ public class CommandManager {
 
 	}
 
-	private static Command acc;
-	private static Command ac;
+	private static Command gadc;
+	private static Command gad;
 	private static Command announcement;
 	private static Command bulletin;
 	private static Command cast;
@@ -101,30 +101,6 @@ public class CommandManager {
 	private static Command stafflist;
 	private static Command usecast;
 
-	/**
-	 * @return the acc
-	 */
-	public static Command getAcc() {
-		return acc;
-	}
-	/**
-	 * @param acc the acc to set
-	 */
-	public static void setAcc(Command acc) {
-		CommandManager.acc = acc;
-	}
-	/**
-	 * @return the ac
-	 */
-	public static Command getAc() {
-		return ac;
-	}
-	/**
-	 * @param ac the ac to set
-	 */
-	public static void setAc(Command ac) {
-		CommandManager.ac = ac;
-	}
 	/**
 	 * @return the announcement
 	 */
@@ -427,12 +403,24 @@ public class CommandManager {
 	public static void setGmoc(Command gmoc) {
 		CommandManager.gmoc = gmoc;
 	}
+	public static Command getGad() {
+		return gad;
+	}
+	public static Command getGadc() {
+		return gadc;
+	}
+	public static void setGad(Command gad) {
+		CommandManager.gad = gad;
+	}
+	public static void setGadc(Command gadc) {
+		CommandManager.gadc = gadc;
+	}
 	/**
 	 * Generates new instances of all commands
 	 */
 	public static void reload() {
-		acc = new ACCCommand();
-		ac = new ACCommand();
+		gadc = new GADCCommand();
+		gad = new GADCommand();
 		announcement = new AnnouncementCommand();
 		bulletin = new BulletinCommand();
 		cast = new CastCommand();

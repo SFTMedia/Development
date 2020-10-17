@@ -44,15 +44,15 @@ public class MessageManager {
 
 		// *** COMMANDS *** //
 
-		defaultMessages.put("command_acc_usage", "&aUsage: /acc <chatcolorcode> <namecolorcode>");
-		defaultMessages.put("command_acc_only_players", "&cOnly players can change chat colours!");
-		defaultMessages.put("command_acc_updated", "&aAdmin-Chat colours updated!");
-		defaultMessages.put("command_acc_invalid", "&cInvalid color codes specified: Must be letters a-f or numbers 0-9");
-		defaultMessages.put("command_acc_invalid_usage", "&cUsage: /acc <chatcolorcode> <namecolorcode>");
+		defaultMessages.put("command_gadc_usage", "&aUsage: /gadc <chatcolorcode> <namecolorcode>");
+		defaultMessages.put("command_gadc_only_players", "&cOnly players can change chat colours!");
+		defaultMessages.put("command_gadc_updated", "&aAdmin-Chat colours updated!");
+		defaultMessages.put("command_gadc_invalid", "&cInvalid color codes specified: Must be letters a-f or numbers 0-9");
+		defaultMessages.put("command_gadc_invalid_usage", "&cUsage: /gadc <chatcolorcode> <namecolorcode>");
 
-		defaultMessages.put("command_ac_toggle_on", "&dAdmin chat toggled on!");
-		defaultMessages.put("command_ac_toggle_off", "&cAdmin chat toggled off!");
-		defaultMessages.put("command_ac_only_players", "&cOnly players can toggle the chat!");
+		defaultMessages.put("command_gad_toggle_on", "&dAdmin chat toggled on!");
+		defaultMessages.put("command_gad_toggle_off", "&cAdmin chat toggled off!");
+		defaultMessages.put("command_gad_only_players", "&cOnly players can toggle the chat!");
 
 		defaultMessages.put("command_announcement_list", "&aList of avaliable announcements:");
 		defaultMessages.put("command_announcement_list_item", "&b -> %SPECIAL%");
@@ -225,7 +225,7 @@ public class MessageManager {
 						+ "&b/mc <message> &o(/ac <message>)\n"
 						+ "&3Change mod/&oadmin &3chat colours\n"
 						+ "&b/mcc <chat colour code> <name colour code>\n"
-						+ "&b&o/acc <chat colour code> <name colour code>\n"
+						+ "&b&o/gadc <chat colour code> <name colour code>\n"
 						+ "&3Toggle mod chat &o(Toggle admin chat)\n"
 						+ "&b/mc &o(/ac)\n"
 						+ "&3&lType &b&l/multichat help <page number> &3&lto view more commands");

@@ -33,15 +33,15 @@ console_helpme_prefix: "&4HELPME &f> &4"
 prefix: "&8&l[&2&lM&a&lC&8&l]&f "
 
 # Plugin messages
-command_acc_usage: "&aUsage: /acc <chatcolorcode> <namecolorcode>"
-command_acc_only_players: "&cOnly players can change chat colours!"
-command_acc_updated: "&aAdmin-Chat colours updated!"
-command_acc_invalid: "&cInvalid color codes specified: Must be letters a-f or numbers 0-9"
-command_acc_invalid_usage: "&cUsage: /acc <chatcolorcode> <namecolorcode>"
+command_gadc_usage: "&aUsage: /gadc <chatcolorcode> <namecolorcode>"
+command_gadc_only_players: "&cOnly players can change chat colours!"
+command_gadc_updated: "&aAdmin-Chat colours updated!"
+command_gadc_invalid: "&cInvalid color codes specified: Must be letters a-f or numbers 0-9"
+command_gadc_invalid_usage: "&cUsage: /gadc <chatcolorcode> <namecolorcode>"
 
-command_ac_toggle_on: "&dAdmin chat toggled on!"
-command_ac_toggle_off: "&cAdmin chat toggled off!"
-command_ac_only_players: "&cOnly players can toggle the chat!"
+command_gad_toggle_on: "&dAdmin chat toggled on!"
+command_gad_toggle_off: "&cAdmin chat toggled off!"
+command_gad_only_players: "&cOnly players can toggle the chat!"
 
 command_announcement_list: "&aList of avaliable announcements:"
 command_announcement_list_item: "&b -> %SPECIAL%"
@@ -203,7 +203,7 @@ command_multichat_help_1: |
  &b/mc <message> &o(/ac <message>)
  &3Change mod/&oadmin &3chat colours
  &b/mcc <chat colour code> <name colour code>
- &b&o/acc <chat colour code> <name colour code>
+ &b&o/gadc <chat colour code> <name colour code>
  &3Toggle mod chat &o(Toggle admin chat)
  &b/mc &o(/ac)
  &3&lType &b&l/multichat help <page number> &3&lto view more commands

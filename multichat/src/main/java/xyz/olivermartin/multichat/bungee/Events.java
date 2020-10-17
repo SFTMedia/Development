@@ -43,7 +43,7 @@ public class Events implements Listener {
 	private static List<UUID> JMToggle = new ArrayList<UUID>();
 	private static List<UUID> MoToggle = new ArrayList<UUID>();
 	private static List<UUID> ManToggle = new ArrayList<UUID>();
-	private static List<UUID> ACToggle = new ArrayList<UUID>();
+	private static List<UUID> GADToggle = new ArrayList<UUID>();
 	private static List<UUID> GCToggle = new ArrayList<UUID>();
 	public static Map<UUID, UUID> PMToggle = new HashMap<UUID, UUID>();
 
@@ -56,8 +56,8 @@ public class Events implements Listener {
 			return false;
 		}
 
-		if (ACToggle.contains(uuid)) {
-			ACToggle.remove(uuid);
+		if (GADToggle.contains(uuid)) {
+			GADToggle.remove(uuid);
 		}
 		if (GCToggle.contains(uuid)) {
 			GCToggle.remove(uuid);
@@ -84,8 +84,8 @@ public class Events implements Listener {
 			return false;
 		}
 
-		if (ACToggle.contains(uuid)) {
-			ACToggle.remove(uuid);
+		if (GADToggle.contains(uuid)) {
+			GADToggle.remove(uuid);
 		}
 		if (GCToggle.contains(uuid)) {
 			GCToggle.remove(uuid);
@@ -112,8 +112,8 @@ public class Events implements Listener {
 			return false;
 		}
 
-		if (ACToggle.contains(uuid)) {
-			ACToggle.remove(uuid);
+		if (GADToggle.contains(uuid)) {
+			GADToggle.remove(uuid);
 		}
 		if (GCToggle.contains(uuid)) {
 			GCToggle.remove(uuid);
@@ -134,10 +134,10 @@ public class Events implements Listener {
 
 	}
 
-	public static boolean toggleAC(UUID uuid) {
+	public static boolean toggleGAD(UUID uuid) {
 
-		if (ACToggle.contains(uuid)) {
-			ACToggle.remove(uuid);
+		if (GADToggle.contains(uuid)) {
+			GADToggle.remove(uuid);
 			return false;
 		}
 
@@ -151,7 +151,7 @@ public class Events implements Listener {
 			PMToggle.remove(uuid);
 		}
 
-		ACToggle.add(uuid);
+		GADToggle.add(uuid);
 		return true;
 
 	}
@@ -166,8 +166,8 @@ public class Events implements Listener {
 		if (JMToggle.contains(uuid)) {
 			JMToggle.remove(uuid);
 		}
-		if (ACToggle.contains(uuid)) {
-			ACToggle.remove(uuid);
+		if (GADToggle.contains(uuid)) {
+			GADToggle.remove(uuid);
 		}
 		if (PMToggle.containsKey(uuid)) {
 			PMToggle.remove(uuid);
@@ -188,8 +188,8 @@ public class Events implements Listener {
 		if (JMToggle.contains(uuid)) {
 			JMToggle.remove(uuid);
 		}
-		if (ACToggle.contains(uuid)) {
-			ACToggle.remove(uuid);
+		if (GADToggle.contains(uuid)) {
+			GADToggle.remove(uuid);
 		}
 		if (GCToggle.contains(uuid)) {
 			GCToggle.remove(uuid);
@@ -244,7 +244,7 @@ public class Events implements Listener {
 			}
 		}
 
-		if (ACToggle.contains(player.getUniqueId())) {
+		if (GADToggle.contains(player.getUniqueId())) {
 
 			String message = event.getMessage();
 
@@ -632,8 +632,8 @@ public class Events implements Listener {
 		if (JMToggle.contains(uuid)) {
 			JMToggle.remove(uuid);
 		}
-		if (ACToggle.contains(uuid)) {
-			ACToggle.remove(uuid);
+		if (GADToggle.contains(uuid)) {
+			GADToggle.remove(uuid);
 		}
 		if (GCToggle.contains(uuid)) {
 			GCToggle.remove(uuid);

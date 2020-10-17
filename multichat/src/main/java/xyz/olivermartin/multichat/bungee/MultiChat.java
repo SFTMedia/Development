@@ -417,8 +417,8 @@ public class MultiChat extends Plugin implements Listener {
 	public void registerCommands(Configuration configYML, Configuration chatcontrolYML) {
 
 		// Register main commands
-		getProxy().getPluginManager().registerCommand(this, CommandManager.getAcc());
-		getProxy().getPluginManager().registerCommand(this, CommandManager.getAc());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGadc());
+		getProxy().getPluginManager().registerCommand(this, CommandManager.getGad());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getGjm());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getGjmc());
 		getProxy().getPluginManager().registerCommand(this, CommandManager.getGmo());
@@ -473,8 +473,8 @@ public class MultiChat extends Plugin implements Listener {
 	public void unregisterCommands(Configuration configYML, Configuration chatcontrolYML) {
 
 		// Unregister main commands
-		getProxy().getPluginManager().unregisterCommand(CommandManager.getAcc());
-		getProxy().getPluginManager().unregisterCommand(CommandManager.getAc());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGadc());
+		getProxy().getPluginManager().unregisterCommand(CommandManager.getGad());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getGjm());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getGjmc());
 		getProxy().getPluginManager().unregisterCommand(CommandManager.getGmo());

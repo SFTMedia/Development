@@ -36,15 +36,15 @@ console_helpme_prefix: "&4HELPME &f> &4"
 prefix: "&8&l[&2&lM&a&lC&8&l]&f "
 
 # Plugin messages
-command_acc_usage: "&aUtilisation : /acc <chatcolorcode> <namecolorcode>"
-command_acc_only_players: "&cSeul les joueurs peuvent changer la couleur du chat!"
-command_acc_updated: "&aLes couleurs du canal de discusion admin ont été mise à jour!"
-command_acc_invalid: "&cCode couleur invalide : Vous devez utiliser des lettres a-f ou des chiffres 0-9"
-command_acc_invalid_usage: "&cUtilisation : /acc <chatcolorcode> <namecolorcode>"
+command_gadc_usage: "&aUtilisation : /gadc <chatcolorcode> <namecolorcode>"
+command_gadc_only_players: "&cSeul les joueurs peuvent changer la couleur du chat!"
+command_gadc_updated: "&aLes couleurs du canal de discusion admin ont été mise à jour!"
+command_gadc_invalid: "&cCode couleur invalide : Vous devez utiliser des lettres a-f ou des chiffres 0-9"
+command_gadc_invalid_usage: "&cUtilisation : /gadc <chatcolorcode> <namecolorcode>"
 
-command_ac_toggle_on: "&dLe canal de discussion admin est activé!"
-command_ac_toggle_off: "&cLe canal de discussion admin est désactivé!"
-command_ac_only_players: "&cSeul les joueur peuvent activé ce chat!"
+command_gad_toggle_on: "&dLe canal de discussion admin est activé!"
+command_gad_toggle_off: "&cLe canal de discussion admin est désactivé!"
+command_gad_only_players: "&cSeul les joueur peuvent activé ce chat!"
 
 command_announcement_list: "&aListe des annonces disponnible :"
 command_announcement_list_item: "&b -> %SPECIAL%"
@@ -208,7 +208,7 @@ command_multichat_help_1: |
  &b/ac <message>
  &3Changer les couleurs des canal de discussion modération/&oadministration
  &b/mcc <chat colour code> <name colour code>
- &b&o/acc <chat colour code> <name colour code>
+ &b&o/gadc <chat colour code> <name colour code>
  &3activation du calnal de discusion modérateur/&oadministrateur
  &b/mc &o(/ac)
  &3&lTapée &b&l/multichat help <page number> &3&lpour voir plus de commande
@@ -341,7 +341,7 @@ groups_help_2: |
  &3Par défaut tout les groupes de discusion sont des groupes public
  &3Si vous êtes propriétaire d'un groupe de discussion, vous avez la possibilité de le convertir en groupe privé
  &3Les options de configuration des groupe de discussion sont limiter aux seuls administrateur
- &3Les administrateurs des groupes de discussion seront également en mesure de restreindre l'accès aux joueurs
+ &3Les administrateurs des groupes de discussion seront également en mesure de restreindre l'gadcès aux joueurs
  &3Convertir un groupe de discussion en groupe privé est irréversible
  &2Convertir votre groupes de discussion public en privé(IRREVERSIBLE)
  &a/group formal <nom du groupe>
