@@ -363,6 +363,9 @@ public class MultiChat extends Plugin implements Listener {
 			// Set up global chat
 			GlobalChannel channel = Channel.getGlobalChannel();
 			channel.setFormat(configYML.getString("globalformat"));
+			if(configYML.contains("globalsend")) {
+				channel.setSend(configYML.getBoolean("globalsend"));
+			}
 
 			// Set up prepender
 			globalPrepend=(configYML.getString("globalprepend"));
