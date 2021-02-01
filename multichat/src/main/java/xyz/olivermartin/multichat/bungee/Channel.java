@@ -137,7 +137,7 @@ public class Channel {
 		DebugManager.log("CHANNEL #" + getName() + ": SENDER = " + sender.getName());
 		DebugManager.log("CHANNEL #" + getName() + ": MESSAGE = " + message);
 		DebugManager.log("CHANNEL #" + getName() + ": FORMAT = " + format);
-		if (!format.equals("")) {
+		if (!this.format.equals("")) {
 			for (ProxiedPlayer receiver : ProxyServer.getInstance().getPlayers()) {
 
 				if (receiver != null && sender != null) {
