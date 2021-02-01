@@ -137,26 +137,28 @@ public class Channel {
 		DebugManager.log("CHANNEL #" + getName() + ": SENDER = " + sender.getName());
 		DebugManager.log("CHANNEL #" + getName() + ": MESSAGE = " + message);
 		DebugManager.log("CHANNEL #" + getName() + ": FORMAT = " + format);
+		if (!format.equals("")) {
+			for (ProxiedPlayer receiver : ProxyServer.getInstance().getPlayers()) {
 
-		for (ProxiedPlayer receiver : ProxyServer.getInstance().getPlayers()) {
+				if (receiver != null && sender != null) {
 
-			if (receiver != null && sender != null) {
+					synchronized (receiver) {
 
-				synchronized (receiver) {
+						if (sender.getServer() != null && receiver.getServer() != null) {
 
-					if (sender.getServer() != null && receiver.getServer() != null) {
+							if ( (whitelistMembers && members.contains(receiver.getUniqueId())) || (!whitelistMembers && !members.contains(receiver.getUniqueId()))) {
+								if ( (whitelistServers && servers.contains(receiver.getServer().getInfo().getName())) || (!whitelistServers && !servers.contains(receiver.getServer().getInfo().getName()))) {
 
-						if ( (whitelistMembers && members.contains(receiver.getUniqueId())) || (!whitelistMembers && !members.contains(receiver.getUniqueId()))) {
-							if ( (whitelistServers && servers.contains(receiver.getServer().getInfo().getName())) || (!whitelistServers && !servers.contains(receiver.getServer().getInfo().getName()))) {
-
-								if (!ChatControl.ignores(sender.getUniqueId(), receiver.getUniqueId(), "global_chat")) {
-									if (!receiver.getServer().getInfo().getName().equals(sender.getServer().getInfo().getName())) {
-										receiver.sendMessage(buildFormat(sender,receiver,format,message));
+									if (!ChatControl.ignores(sender.getUniqueId(), receiver.getUniqueId(), "global_chat")) {
+										if (!receiver.getServer().getInfo().getName().equals(sender.getServer().getInfo().getName())) {
+											receiver.sendMessage(buildFormat(sender,receiver,format,message));
+										} else {
+											// If they are on the same server, this message will already have been displayed locally.
+										}
 									} else {
-										// If they are on the same server, this message will already have been displayed locally.
+										ChatControl.sendIgnoreNotifications(receiver, sender, "global_chat");
 									}
-								} else {
-									ChatControl.sendIgnoreNotifications(receiver, sender, "global_chat");
+
 								}
 
 							}
@@ -168,7 +170,6 @@ public class Channel {
 				}
 
 			}
-
 		}
 
 		// Trigger PostGlobalChatEvent

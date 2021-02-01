@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>xyz.olivermartin.multichat</groupId>
   <artifactId>multichat</artifactId>
-  <version>1.9.6-custom-5</version>
+  <version>1.9.6-custom-7</version>
   <build>
     <plugins>
       <plugin>
@@ -47,7 +47,7 @@
     </repository>
     <repository>
       <id>sponge</id>
-      <url>http://repo.spongepowered.org/maven</url>
+      <url>https://repo.spongepowered.org/maven</url>
     </repository>
     <repository>
       <id>bungeecord-repo</id>
@@ -294,3 +294,4 @@
     </dependency>
   </dependencies>
 </project>
+
