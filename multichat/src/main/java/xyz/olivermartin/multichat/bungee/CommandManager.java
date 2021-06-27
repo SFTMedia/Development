@@ -53,7 +53,7 @@ public class CommandManager {
 		ignore = new IgnoreCommand();
 		local = new LocalCommand();
 		gjm = new GJMCommand();
-		gjmc = new GJMCommand();
+		gjmc = new GJMCCommand();
 		gmo = new GMOCommand();
 		gmoc = new GMOCCommand();
 		gman = new GMANCommand();

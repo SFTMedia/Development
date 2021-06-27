@@ -144,6 +144,12 @@ public class Events implements Listener {
 		if (JMToggle.contains(uuid)) {
 			JMToggle.remove(uuid);
 		}
+		if(MoToggle.contains(uuid)){
+			MoToggle.remove(uuid);
+		}
+		if(ManToggle.contains(uuid)){
+			ManToggle.remove(uuid);
+		}
 		if (GCToggle.contains(uuid)) {
 			GCToggle.remove(uuid);
 		}
@@ -166,6 +172,12 @@ public class Events implements Listener {
 		if (JMToggle.contains(uuid)) {
 			JMToggle.remove(uuid);
 		}
+		if(MoToggle.contains(uuid)){
+			MoToggle.remove(uuid);
+		}
+		if(ManToggle.contains(uuid)){
+			ManToggle.remove(uuid);
+		}
 		if (GADToggle.contains(uuid)) {
 			GADToggle.remove(uuid);
 		}
@@ -187,6 +199,12 @@ public class Events implements Listener {
 
 		if (JMToggle.contains(uuid)) {
 			JMToggle.remove(uuid);
+		}
+		if(MoToggle.contains(uuid)){
+			MoToggle.remove(uuid);
+		}
+		if(ManToggle.contains(uuid)){
+			ManToggle.remove(uuid);
 		}
 		if (GADToggle.contains(uuid)) {
 			GADToggle.remove(uuid);
@@ -238,7 +256,37 @@ public class Events implements Listener {
 				StaffChatManager chatman = new StaffChatManager();
 
 				event.setCancelled(true);
+				chatman.sendJModMessage(player.getName(),player.getDisplayName(), player.getServer().getInfo().getName(), message);
+				chatman = null;
+
+			}
+		}
+
+		if (MoToggle.contains(player.getUniqueId())) {
+
+			String message = event.getMessage();
+
+			if (!event.isCommand()) {
+
+				StaffChatManager chatman = new StaffChatManager();
+
+				event.setCancelled(true);
 				chatman.sendModMessage(player.getName(),player.getDisplayName(), player.getServer().getInfo().getName(), message);
+				chatman = null;
+
+			}
+		}
+
+		if (ManToggle.contains(player.getUniqueId())) {
+
+			String message = event.getMessage();
+
+			if (!event.isCommand()) {
+
+				StaffChatManager chatman = new StaffChatManager();
+
+				event.setCancelled(true);
+				chatman.sendManagerMessage(player.getName(),player.getDisplayName(), player.getServer().getInfo().getName(), message);
 				chatman = null;
 
 			}
